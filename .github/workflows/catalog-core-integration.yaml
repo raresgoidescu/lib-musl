@@ -19,9 +19,11 @@ jobs:
           repo: catalog-core
           event_type: musl_pr
           client_payload: |
-            '{
+            {
               "pr_number": "${{ github.event.pull_request.number }}",
               "pr_branch": "${{ github.head_ref }}",
               "pr_repo": "${{ github.repository }}",
               "id": "${{ github.run_id }}"
-            }'
+            }
+        env:
+          GITHUB_TOKEN: ${{ secrets.GH_CATALOG_CORE_PAT }}
