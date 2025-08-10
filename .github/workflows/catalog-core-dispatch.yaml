@@ -1,4 +1,4 @@
-name: catalog-core-dispatch
+name: cc-dispatch-musl
 
 on:
   pull_request_target:
