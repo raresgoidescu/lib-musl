@@ -1,7 +1,7 @@
 # SPDX-License-Identifier: BSD-3-Clause
 #
-# Tell catalog-core that this pull request changed, so it can test the
-# change on the catalog apps. All logic lives in catalog-core; this file
+# Tell catalog-core that this pull request changed (or someone commented
+# `recheck`), so it can test the change on the catalog apps. All logic lives in catalog-core; this file
 # is identical in every repository. No PR code is checked out here.
 
 name: catalog-core
@@ -9,6 +9,8 @@ name: catalog-core
 on:
   pull_request_target:  # zizmor: ignore[dangerous-triggers] -- no checkout; only sends the PR number
     types: [opened, synchronize, reopened, edited, ready_for_review]
+  issue_comment:        # `recheck` on a PR re-runs the tests
+    types: [created]
 
 permissions: {}
 
